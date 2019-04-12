@@ -12,28 +12,19 @@ const DEFAULT_SETTINGS = {
 const SET_GAME_STARTED = 'SET_GAME_STARTED';
 const SET_INSTRUCTIONS_EXPANDED = 'SET_INSTRUCTIONS_EXPANDED';
 
-const rootReducer = (state = DEFAULT_SETTINGS, action) => {
+const appReducer = (state = DEFAULT_SETTINGS, action) => {
 
   switch(action.type) {
     case SET_GAME_STARTED:
-      return {
-        gameStarted: action.gameStarted,
-        instructionsExpanded: state.instructionsExpanded
-      };
-    break;
+      return { ...state, gameStarted: action.gameStarted };
     case SET_INSTRUCTIONS_EXPANDED:
-      return {
-        gameStarted: state.gameStarted,
-        instructionsExpanded: action.instructionsExpanded
-      };
-    break;
+      return { ...state, instructionsExpanded: action.instructionsExpanded };
     default:
       return state;
-    break;
   }
-} 
+}
 
-const store = createStore(rootReducer);
+const store = createStore(appReducer);
 
 store.subscribe(() => console.log('Store -->', store.getState()));
 
