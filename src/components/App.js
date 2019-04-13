@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startGame, endGame } from '../actions/settings';
+import Instructions from './Instructions';
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             </div>
           )
         }
+        <Instructions />
       </div>
     )
   }
