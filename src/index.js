@@ -9,10 +9,6 @@ import './index.css';
 const store = createStore(appReducer);
 
 store.subscribe(() => console.log('Store -->', store.getState()));
-//store.dispatch(startGame());
-//store.dispatch(expandInstructions());
-//store.dispatch(endGame());
-//store.dispatch(foldInstructions());
 
 ReactDOM.render(
   <Provider store={store}>
