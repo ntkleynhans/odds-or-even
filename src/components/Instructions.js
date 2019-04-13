@@ -30,17 +30,7 @@ class Instructions extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
-  return {
-    expandInstructions: () => dispatch(expandInstructions()),
-    foldInstructions: () => dispatch(foldInstructions())
-  };
-}
-
-const mapStateToProps = state => {
-  return { instructionsExpanded: state.instructionsExpanded };
-}
-
-const componentConnector = connect(mapStateToProps, mapDispatchToProps);
-
-export default componentConnector(Instructions);
+export default connect(
+  state => ({ instructionsExpanded: state.instructionsExpanded }),
+  {expandInstructions, foldInstructions}
+)(Instructions);

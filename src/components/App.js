@@ -12,17 +12,18 @@ class App extends Component {
           this.props.gameStarted ? (
             <div>
               <h3>The game has started</h3>
-              <hr />
+              <br />
               <button type="button" className="btn btn-warning" onClick={this.props.endGame}>End the game</button>
             </div>
           ) : (
             <div>
               <h3>A new game awaits</h3>
-              <hr />
+              <br />
               <button type="button" className="btn btn-info" onClick={this.props.startGame}>Start game</button>
             </div>
           )
         }
+        <hr />
         <Instructions />
       </div>
     )
