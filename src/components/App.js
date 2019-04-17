@@ -36,18 +36,18 @@ class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => {
+/*const mapDispatchToProps = dispatch => {
   return {
     startGame: () => dispatch(startGame()),
     endGame: () => dispatch(endGame()),
     fetchNewDeck: () => fetchNewDeck(dispatch)
   }
-}
+}*/
 
 const mapStateToProps = state => {
   return { gameStarted: state.gameStarted };
 }
 
-const componentConnector = connect(mapStateToProps, mapDispatchToProps);
+const componentConnector = connect(mapStateToProps, { startGame, endGame, fetchNewDeck });
 
 export default componentConnector(App);

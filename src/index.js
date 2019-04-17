@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
 import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import App from './components/App';
 import appReducer from './reducers';
 import './index.css';
 
-const store = createStore(appReducer);
+const store = createStore(appReducer, applyMiddleware(thunk));
 
 store.subscribe(() => console.log('Store -->', store.getState()));
 
