@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startGame, endGame } from '../actions/settings';
-import { fetchDeckResult } from '../actions/deck';
+import { fetchNewDeck } from '../actions/deck';
 import Instructions from './Instructions';
 
 class App extends Component {
   startGame = () => {
     this.props.startGame();
-
-    fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
-    .then(response => response.json())
-    .then(json => this.props.fetchDeckResult(json))
-    .catch(error => alert(error.message));
+    this.props.fetchNewDeck();
   }
 
   render() {
@@ -44,7 +40,7 @@ const mapDispatchToProps = dispatch => {
   return {
     startGame: () => dispatch(startGame()),
     endGame: () => dispatch(endGame()),
-    fetchDeckResult: deckJson => dispatch(fetchDeckResult(deckJson))
+    fetchNewDeck: () => fetchNewDeck(dispatch)
   }
 }
 
