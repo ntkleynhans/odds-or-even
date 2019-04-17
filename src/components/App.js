@@ -47,16 +47,12 @@ class App extends Component {
   }
 }
 
-/*const mapDispatchToProps = dispatch => {
-  return {
-    startGame: () => dispatch(startGame()),
-    endGame: () => dispatch(endGame()),
-    fetchNewDeck: () => fetchNewDeck(dispatch)
-  }
-}*/
-
 const mapStateToProps = state => {
-  const { gameStarted, fetchStates, message } = state
+  const {
+    settings: { gameStarted },
+    deck: { fetchStates, message }
+  } = state
+
   return { gameStarted, fetchStates, message };
 }
 

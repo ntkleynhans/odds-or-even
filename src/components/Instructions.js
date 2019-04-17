@@ -31,6 +31,6 @@ class Instructions extends Component {
 }
 
 export default connect(
-  state => ({ instructionsExpanded: state.instructionsExpanded }),
+  state => ({ instructionsExpanded: state.settings.instructionsExpanded }),
   {expandInstructions, foldInstructions}
 )(Instructions);
