@@ -1,14 +1,23 @@
-import { FETCH_DECK_RESULT } from './types.js';
+import { DECK } from './types.js';
 
-export const fetchDeckResult = deckJson => {
+export const fetchDeckSuccess = deckJson => {
   const { remaining, deck_id } = deckJson;
 
-  return { type: FETCH_DECK_RESULT, remaining, deck_id };
+  return { type: DECK.FETCH_SUCCESS, remaining, deck_id };
+}
+
+export const fetchDeckError = error => {
+  return { type: DECK.FETCH_ERROR, message: error.message }
 }
 
 export const fetchNewDeck = () => dispatch => {
-    return fetch('https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1')
-    .then(response => response.json())
-    .then(json => dispatch(fetchDeckResult(json)))
-    .catch(error => alert(error.message));
+    return fetch('https://deck-of-cards-api-wrapper.appspot.com/deck/new/shuffleee')
+    .then(response => {
+      if(response.status !== 200) {
+        throw new Error('Unsuccessful request to deckofcards.api');
+      }
+      return response.json()
+    })
+    .then(json => dispatch(fetchDeckSuccess(json)))
+    .catch(error => dispatch(fetchDeckError(error)));
 }
