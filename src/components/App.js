@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { startGame, endGame } from '../actions/settings';
 import { fetchNewDeck } from '../actions/deck';
-import Instructions from './Instructions';
 import fetchStates from '../reducers/fetchStates';
+import Instructions from './Instructions';
+import DrawCard from './DrawCard';
 
 class App extends Component {
   startGame = () => {
@@ -30,6 +31,8 @@ class App extends Component {
             <div>
               <h3>The game has started</h3>
               <br />
+              <DrawCard />
+              <hr />
               <button type="button" className="btn btn-warning" onClick={this.props.endGame}>End the game</button>
             </div>
           ) : (
