@@ -22,4 +22,3 @@ class Card extends Component {
 export default connect(
   ({ card: { remaining, cards } }) => ({ remaining, cards })
 )(Card);
-

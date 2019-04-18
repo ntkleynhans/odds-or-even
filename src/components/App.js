@@ -5,6 +5,7 @@ import { fetchNewDeck } from '../actions/deck';
 import fetchStates from '../reducers/fetchStates';
 import Instructions from './Instructions';
 import DrawCard from './DrawCard';
+import Guess from './Guess';
 
 class App extends Component {
   startGame = () => {
@@ -30,6 +31,8 @@ class App extends Component {
           this.props.gameStarted ? (
             <div>
               <h3>The game has started</h3>
+              <br />
+              <Guess />
               <br />
               <DrawCard />
               <hr />

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchNewCard } from '../actions/card';
+import { updateCorrectCount } from '../actions/gameState';
 import Card from './Card';
 
 const DrawCard = ({ deck_id, fetchNewCard }) => {
