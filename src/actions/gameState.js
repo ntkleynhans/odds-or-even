@@ -7,7 +7,3 @@ export const setGuessEven = () => {
 export const setGuessOdd = () => {
   return { type: GAME_STATE.GUESS_ODD, guess: 'odd' };
 }
-
-export const updateCorrectCount = correct => {
-  return { type: GAME_STATE.CORRECT_COUNT, isCorrect: correct };
-}
