@@ -1,11 +1,11 @@
-import { GAME_STATE, SET_GAMES_STARTED, CARD } from '../actions/types';
+import { GAME_STATE, SET_GAME_STARTED, CARD } from '../actions/types';
 
 const DEFAULT_GAME_STATE = {
   guess: null,
   correctCount: 0
 }
 
-const EVEN = ['0', '2', '4', '6', '8'];
+const EVEN = ['0', '2', '4', '6', '8', '10'];
 const ODD = ['ACE', '3', '5', '7', '9'];
 
 const gameStateReducer = (state = DEFAULT_GAME_STATE, action) => {
@@ -14,7 +14,7 @@ const gameStateReducer = (state = DEFAULT_GAME_STATE, action) => {
       return { ...state, guess: action.guess };
     case GAME_STATE.GUESS_ODD:
       return { ...state, guess: action.guess };
-    case SET_GAMES_STARTED:
+    case SET_GAME_STARTED:
       return DEFAULT_GAME_STATE;
     case CARD.CARD_SUCCESS:
       let correctCount = state.correctCount;
