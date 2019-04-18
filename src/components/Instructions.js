@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { expandInstructions, foldInstructions } from '../actions/settings';
 
-
 class Instructions extends Component {
   render() {
     return (
